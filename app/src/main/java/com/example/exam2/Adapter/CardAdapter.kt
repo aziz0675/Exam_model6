@@ -1,30 +1,28 @@
 package com.example.exam2.Adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exam2.R
 import com.example.exam2.model.Cards
-import org.w3c.dom.Text
-import java.util.concurrent.TimeoutException
 
-class CardAdapter(var context: Context, var cards: ArrayList<Cards>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CardAdapter(var cards: ArrayList<Cards>): RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardAdapter.CardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card,parent,false)
         return CardViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val card = cards[position]
         if (holder is CardViewHolder){
             apply {
-
+                holder.tv_card_number.setText(card.numberCard)
+                holder.tv_card_name.setText(card.name)
+                holder.tv_card_date.setText(card.date)
             }
         }
     }
@@ -33,20 +31,17 @@ class CardAdapter(var context: Context, var cards: ArrayList<Cards>): RecyclerVi
         return cards.size
     }
 
-    class CardViewHolder(view: View): RecyclerView.ViewHolder(view){
-        var card_number: EditText
-        var card_name: EditText
-        var card_day: EditText
-        var card_month: EditText
-        var card_cvv: EditText
+    inner class CardViewHolder(view: View): RecyclerView.ViewHolder(view){
+
+            var tv_card_number: TextView
+            var tv_card_date: TextView
+            var tv_card_name: TextView
 
 
         init {
-            card_number = view.findViewById(R.id.tv_cardNumber)
-            card_name = view.findViewById(R.id.userName)
-            card_day = view.findViewById(R.id.et_card_day)
-            card_month = view.findViewById(R.id.et_card_month)
-            card_cvv = view.findViewById(R.id.et_card_cvv)
+            tv_card_number = view.findViewById(R.id.tv_card_number)
+            tv_card_date = view.findViewById(R.id.tv_card_date)
+            tv_card_name = view.findViewById(R.id.tv_card_name)
         }
     }
 }

@@ -4,7 +4,7 @@ import com.example.exam2.model.Cards
 import retrofit2.Call
 import retrofit2.http.*
 
-interface UserService {
+interface ApiService {
 
     @GET("Cards")
     fun getAllCards(): Call<ArrayList<Cards>>

@@ -3,12 +3,12 @@ package com.example.exam2.networking
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitHttp {
+class ApiClient {
 
     companion object{
 
-        private val TAG: String = RetrofitHttp::class.java.simpleName
-        private const val IS_TESTER: Boolean = true
+        private val TAG: String = ApiClient::class.java.simpleName
+        const val IS_TESTER: Boolean = true
         private const val SERVER_DEVELOPMENT = "https://6232b03d8364d63035c1ad49.mockapi.io/"
         private const val SERVER_PRODUCTION = "https://6232b03d8364d63035c1ad49.mockapi.io/"
 
@@ -27,6 +27,6 @@ class RetrofitHttp {
                 .build()
         }
 
-        val userService: UserService = getRetrofit().create(UserService::class.java)
+        val apiService = getRetrofit().create(ApiService::class.java)
     }
 }

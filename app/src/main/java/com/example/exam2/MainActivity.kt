@@ -4,19 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.exam2.Adapter.CardAdapter
+import com.example.exam2.helper.Logger
 import com.example.exam2.model.Cards
-import com.example.exam2.networking.RetrofitHttp
+import com.example.exam2.networking.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var tv_cardNumber: TextView
+    lateinit var recyclerView: RecyclerView
     lateinit var iv_ad: ImageView
-    lateinit var user_name: TextView
-    lateinit var date: TextView
+    lateinit var list: ArrayList<Cards>
+    lateinit var adapter: CardAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +29,29 @@ class MainActivity : AppCompatActivity() {
     fun initViews(){
         iv_ad = findViewById(R.id.add_cards)
         iv_ad.setOnClickListener { openDetailActivity() }
+
+        recyclerView = findViewById(R.id.recyclerView)
+        list = ArrayList()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        workWithRetrofit()
     }
 
-    private fun getCards(){
-        RetrofitHttp.userService.getAllCards().enqueue(object : Callback<ArrayList<Cards>>{
-            override fun onFailure(call: Call<ArrayList<Cards>>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-
+    fun workWithRetrofit(){
+        ApiClient.apiService.getAllCards().enqueue(object: Callback<ArrayList<Cards>> {
             override fun onResponse(
                 call: Call<ArrayList<Cards>>,
                 response: Response<ArrayList<Cards>>
             ) {
-                TODO("Not yet implemented")
+                list.addAll(response.body()!!)
+                adapter = CardAdapter(list)
+                recyclerView.adapter = adapter
+                Logger.d("@@@",response.body().toString())
             }
+
+            override fun onFailure(call: Call<ArrayList<Cards>>, t: Throwable) {
+                Logger.e("@@@","Failure")
+            }
+
         })
     }
 
