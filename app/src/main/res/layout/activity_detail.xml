@@ -184,6 +184,7 @@
             android:textColor="@color/white"/>
 
         <EditText
+            android:id="@+id/et_card_number"
             android:inputType="number"
             android:layout_marginTop="5dp"
             android:padding="10dp"
@@ -220,7 +221,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/et_month"
+                android:id="@+id/et_card_month"
                 android:gravity="center"
                 android:inputType="number"
                 android:background="@drawable/edittext_round"
@@ -230,7 +231,7 @@
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/et_day"
+                android:id="@+id/et_card_day"
                 android:inputType="number"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
@@ -241,7 +242,7 @@
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/et_cvv"
+                android:id="@+id/et_card_cvv"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:inputType="number"
@@ -261,6 +262,7 @@
             android:textColor="@color/white"/>
 
         <EditText
+            android:id="@+id/et_card_name"
             android:layout_marginTop="5dp"
             android:padding="10dp"
             android:layout_width="match_parent"

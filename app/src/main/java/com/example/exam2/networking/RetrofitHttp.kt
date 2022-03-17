@@ -1,6 +1,5 @@
-package com.example.exam2.model
+package com.example.exam2.networking
 
-import com.example.exam2.networking.UserService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

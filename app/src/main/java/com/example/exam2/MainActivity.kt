@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.exam2.model.Cards
-import com.example.exam2.model.RetrofitHttp
+import com.example.exam2.networking.RetrofitHttp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

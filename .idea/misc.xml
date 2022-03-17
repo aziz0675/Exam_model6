@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Exam2/app/src/main/res/drawable/button_rounded.xml" value="0.17592592592592593" />
         <entry key="..\:/Exam2/app/src/main/res/drawable/edittext_round.xml" value="0.17592592592592593" />
-        <entry key="..\:/Exam2/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/Exam2/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/Exam2/app/src/main/res/layout/activity_main.xml" value="0.2125" />
+        <entry key="..\:/Exam2/app/src/main/res/layout/item_card.xml" value="0.196875" />
       </map>
     </option>
   </component>
