@@ -22,7 +22,7 @@ class CardAdapter(var cards: ArrayList<Cards>): RecyclerView.Adapter<CardAdapter
             apply {
                 holder.tv_card_number.setText(card.numberCard)
                 holder.tv_card_name.setText(card.name)
-                holder.tv_card_date.setText(card.date)
+                holder.tv_card_date.setText(card.data)
             }
         }
     }
